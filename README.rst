@@ -40,7 +40,7 @@ Use the wrapper script (recommended):
 
 ::
 
-    $ settingsdiff -h
+    $ diffsettings -h
 
 Call the module:
 
@@ -53,8 +53,8 @@ Import as library:
 ::
 
     $ python
-    >>> from django_settings_diff import settingsdiff
-    >>> help(settingsdiff)
+    >>> from django_settings_diff import diffsettings
+    >>> help(diffsettings)
 
 Usage
 -----
@@ -70,8 +70,8 @@ Then, pickle the settings modules to disk:
 
 ::
 
-    DJANGO_SETTINGS_MODULE=myapp.settings_old settingsdiffer --dump old_settings.pkl
-    DJANGO_SETTINGS_MODULE=myapp.settings_new settingsdiffer --dump new_settings.pkl
+    DJANGO_SETTINGS_MODULE=myapp.settings_old diffsettings --dump old_settings.pkl
+    DJANGO_SETTINGS_MODULE=myapp.settings_new diffsettings --dump new_settings.pkl
 
 Diff Settings
 ~~~~~~~~~~~~~
@@ -80,6 +80,6 @@ Now we can diff the two settings objects:
 
 ::
 
-    settingsdiffer old_settings.pkl new_settings.pkl 
+    diffsettings old_settings.pkl new_settings.pkl 
 
 See the documentation for `deepdiff <https://github.com/seperman/deepdiff>`_ for help deciphering the output.
