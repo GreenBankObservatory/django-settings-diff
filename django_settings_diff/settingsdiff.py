@@ -6,18 +6,30 @@ from pprint import pprint
 from deepdiff import DeepDiff
 
 
-def dump_settings(path):
+def dump_settings(path, dump_type):
     """Given an output path, dump the given settings as a .pkl file"""
     import os
     import sys
-    sys.path.insert(0, os.path.realpath('.')) 
+
+    sys.path.insert(0, os.path.realpath("."))
     import django
+
     django.setup()
     from django.conf import settings
 
     settings_dict = settings.__dict__["_wrapped"].__dict__
+
+    if not dump_type:
+        dump_type = path.split(".")[-1]
     with open(path, "w") as file:
-        pickle.dump(settings_dict, file)
+        if dump_type == "txt":
+            pprint(settings_dict, stream=file)
+        elif dump_type == "pkl":
+            pickle.dump(settings_dict, file)
+        else:
+            raise NotImplementedError(
+                "dump_type '{}' is not supported!".format(dump_type)
+            )
 
 
 def load_settings(path):
