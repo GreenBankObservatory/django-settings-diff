@@ -3,7 +3,9 @@
 
 """docstring"""
 
+from __future__ import print_function, unicode_literals
 import argparse
+import sys
 
 from .settingsdiff import dump_settings, diff_settings
 
@@ -35,7 +37,11 @@ def main():
     args = parser.parse_args()
 
     if args.dump:
-        dump_settings(args.dump, args.dump_type)
+        try:
+            dump_settings(args.dump, args.dump_type)
+        except NotImplementedError as error:
+            print("ERROR: {}".format(error), file=sys.stderr)
+            sys.exit(1)
     elif args.settings_path_1 and args.settings_path_2:
         diff_settings(args.settings_path_1, args.settings_path_2)
     else:

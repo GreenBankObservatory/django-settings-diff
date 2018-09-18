@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, unicode_literals
 import pickle
 from pprint import pprint
 
 from deepdiff import DeepDiff
 
 
-def dump_settings(path, dump_type):
+def dump_settings(dump_path, dump_type):
     """Given an output path, dump the given settings as a .pkl file"""
     import os
     import sys
@@ -20,15 +21,16 @@ def dump_settings(path, dump_type):
     settings_dict = settings.__dict__["_wrapped"].__dict__
 
     if not dump_type:
-        dump_type = path.split(".")[-1]
-    with open(path, "w") as file:
+        dump_type = dump_path.split(".")[-1]
+    with open(dump_path, "w") as file:
         if dump_type == "txt":
             pprint(settings_dict, stream=file)
         elif dump_type == "pkl":
             pickle.dump(settings_dict, file)
         else:
             raise NotImplementedError(
-                "dump_type '{}' is not supported!".format(dump_type)
+                "Dump type '{}' is not supported (derived from dump path '{}')! "
+                "Specify dump_type explicitly to resolve this.".format(dump_type, dump_path)
             )
 
 

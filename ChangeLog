@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.2.1
+-----
+
+* Clarified docs, --help, and error messages
+* Forgot to add the ChangeLog
+
 0.2.0
 -----
 
