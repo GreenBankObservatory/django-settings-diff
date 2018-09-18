@@ -4,6 +4,7 @@ CHANGES
 0.2.1
 -----
 
+* Fixed syntax error in README
 * Clarified docs, --help, and error messages
 * Forgot to add the ChangeLog
 

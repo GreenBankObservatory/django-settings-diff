@@ -21,11 +21,13 @@ Installation
 Install from pip (recommended):
 
 ::
+
     $ pip install django-settings-diff
 
 Or, install straight from the repo:
 
 ::
+
     $ git clone https://github.com/GreenBankObservatory/django-settings-diff
     $ pip install django-settings-diff
 
@@ -37,16 +39,19 @@ Entry Points
 Use the wrapper script (recommended):
 
 ::
+
     $ diffsettings -h
 
 Call the module:
 
 ::
+
     $ python -m django_settings_diff -h
 
 Import as library:
 
 ::
+
     $ python
     >>> from django_settings_diff import diffsettings
     >>> help(diffsettings)
@@ -71,6 +76,7 @@ Dump Settings
 Pickle the settings modules to disk:
 
 ::
+
     $ DJANGO_SETTINGS_MODULE=myapp.settings_old diffsettings --dump old_settings.pkl
     $ DJANGO_SETTINGS_MODULE=myapp.settings_new diffsettings --dump new_settings.pkl
 
@@ -80,6 +86,7 @@ Diff Settings
 Now we can diff the two settings objects:
 
 ::
+
     $ diffsettings old_settings.pkl new_settings.pkl 
 
 See the documentation for `deepdiff <https://github.com/seperman/deepdiff>`_ for help deciphering the output.
@@ -95,6 +102,7 @@ Dump Settings
 Dump the settings modules to disk (internally this uses ``pprint`` to print the settings object):
 
 ::
+
     $ DJANGO_SETTINGS_MODULE=myapp.settings_old diffsettings --dump old_settings.txt
     $ DJANGO_SETTINGS_MODULE=myapp.settings_new diffsettings --dump new_settings.txt
 
@@ -106,4 +114,5 @@ Then, use your favorite diff tool to compare these. This should work quite well,
 For example:
 
 ::
+
     $ tkdiff {old,new}_settings.txt
