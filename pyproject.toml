@@ -1,0 +1,25 @@
+[tool]
+[tool.poetry]
+authors = ["Thomas Chamberlin <tchamber@nrao.edu>"]
+name = "django_settings_diff"
+version = "0.2.2"
+description = "Tool to help diff two Django settings modules"
+license = "MIT"
+readme = "README.rst"
+repository = "http://github.com/GreenBankObservatory/django-settings-diff"
+keywords = ["django", "settings", "diff"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+]
+[tool.poetry.dependencies]
+python = "^2.7 || ^3.5"
+deepdiff = "^3.3.0"
+django = { version = ">=1", optional = true}
+
+[tool.poetry.scripts]
+diffsettings = "django_settings_diff.cli:main"

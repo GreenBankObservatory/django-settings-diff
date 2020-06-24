@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.2.2
+-----
+
+* Moved to poetry package management
+
 0.2.1
 -----
 
